@@ -1,12 +1,13 @@
 package src.Sorting;
 
-public class BubbleSort {
+public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] nums = {5,2,1,3};
+        int[] nums = {4, 2, 6, 8, 9, 1, 3};
 
         int size = nums.length;
+        int minIndex =-1;
 
         System.out.println("Before sorting");
         for (int n : nums) {
@@ -14,20 +15,24 @@ public class BubbleSort {
         }
         System.out.println("");
 
-        int temp = 0;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size -i- 1; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
+        for(int i=0; i < size-1 ; i++){
+            minIndex = i;
+            for(int j=i+1; j < size ; j++){
+                if(nums[minIndex] > nums[j]){
+                    minIndex =j;
                 }
             }
+
+            int temp = nums [i];
+            nums[i] = nums [minIndex];
+            nums [minIndex] = temp;
+
             System.out.println("during sorting");
             for (int n : nums) {
                 System.out.print(n + " ");
             }
         }
+
 
 
     }
